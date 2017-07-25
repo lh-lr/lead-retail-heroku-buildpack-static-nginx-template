@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# this pack is valid for apps with a nginx/config/templates/nginx.conf.erb template file
+if [ -f $1/nginx/config/templates/nginx.conf.erb ]; then
+  echo "NGINX template override."
+  exit 0
+else
+  exit 1
+fi

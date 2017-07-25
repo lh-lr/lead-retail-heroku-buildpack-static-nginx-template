@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+echo "-----> Found a nginx/config/templates/nginx.conf.erb"
+
+# if file is empty, abort the build
+if [ ! -s $1/nginx/config/templates/nginx.conf.erb ]; then
+  echo "nginx/config/templates/nginx.conf.erb was empty"
+  exit 1
+fi
+
+# replace template nginx.conf.erb
+cp $1/nginx/config/templates/nginx.conf.erb $1/bin/config/templates/nginx.conf.erb
+
+exit 0
